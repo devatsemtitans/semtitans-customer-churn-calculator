@@ -775,6 +775,7 @@ ${window.location.href}`;
         const email = document.getElementById("lead-email")?.value || "";
         const company = document.getElementById("lead-company")?.value || "Your Company";
         const spend = document.getElementById("lead-spend")?.value || "$10,000 – $50,000 / month";
+        const isNewsletter = document.getElementById("lead-newsletter")?.checked ? "Yes" : "No";
         const type = currentIndustry.name;
 
         const starting = document.getElementById("starting")?.value || "1000";
@@ -791,6 +792,7 @@ Lost/Month: ${lost}
 Monthly Churn: ${churn.toFixed(1)}%
 ARPU: $${arpu}
 Annual Revenue Drag: $${Math.round(annualLoss).toLocaleString()}
+Newsletter Subscriber: ${isNewsletter}
 Model URL: ${window.location.href}`;
 
         const payload = new URLSearchParams();
