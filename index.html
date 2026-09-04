@@ -815,46 +815,49 @@
         </form>
 
         <!-- Inline Success Feedback Card -->
-        <div id="lead-success-card" class="hidden text-center py-4 sm:py-6">
-          <div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-opportunity/15 text-opportunity shadow-inner mb-4">
+        <div id="lead-success-card" class="hidden text-center py-6 sm:py-8 px-2">
+          <!-- Animated / Glow Emerald Icon -->
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-opportunity/15 text-opportunity border border-opportunity/30 shadow-sm mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-opportunity"><path d="M20 6 9 17l-5-5"></path></svg>
           </div>
           
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-opportunity/15 px-3.5 py-1 text-xs font-bold text-opportunity uppercase tracking-wider mb-2">
-            ✓ Inquiry Successfully Submitted
-          </span>
-
-          <h3 class="font-display text-2xl font-bold text-navy sm:text-3xl">
-            We've Received Your Details!
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-navy">
+            Audit Request Received!
           </h3>
           
-          <p class="mt-2 text-base text-muted-foreground max-w-md mx-auto leading-relaxed">
-            Thank you, <strong id="lead-success-name" class="text-navy"></strong>! A senior SEMTITANS performance marketing strategist is reviewing your churn economics for <strong id="lead-success-company" class="text-navy"></strong>.
+          <p class="mt-2.5 text-sm sm:text-base text-muted-foreground max-w-md mx-auto leading-relaxed">
+            Thank you, <strong id="lead-success-name" class="text-navy font-bold"></strong>! A senior SEMTITANS strategist is auditing the churn &amp; paid acquisition numbers for <strong id="lead-success-company" class="text-navy font-bold"></strong>.
           </p>
 
-          <div class="mt-6 rounded-xl border border-border bg-panel p-4.5 text-left text-xs sm:text-sm text-foreground space-y-2.5">
-            <div class="flex items-center gap-2 font-bold text-navy">
+          <!-- 2-Step Roadmap Card -->
+          <div class="mt-6 rounded-2xl border border-border bg-panel/70 p-5 text-left text-xs sm:text-sm text-foreground space-y-3.5 shadow-xs">
+            <div class="flex items-center gap-2 font-bold text-navy text-sm border-b border-border/60 pb-2.5">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              <span>What Happens Next:</span>
+              <span>Next Steps in Your Audit:</span>
             </div>
-            <div class="flex items-start gap-2.5 text-muted-foreground">
-              <span class="font-bold text-primary shrink-0">1.</span>
-              <span>We audit your paid media funnels (Google &amp; Meta Ads) and churn drop-off points.</span>
+            
+            <div class="flex items-start gap-3 text-muted-foreground">
+              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">1</span>
+              <span class="leading-relaxed">We audit your paid media funnels (Google &amp; Meta Ads) and churn drop-off points.</span>
             </div>
-            <div class="flex items-start gap-2.5 text-muted-foreground">
-              <span class="font-bold text-primary shrink-0">2.</span>
-              <span>We'll email your custom Growth &amp; Retention Strategy Report to <strong id="lead-success-email" class="text-navy font-semibold"></strong> within 1–2 business days.</span>
+            
+            <div class="flex items-start gap-3 text-muted-foreground">
+              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">2</span>
+              <span class="leading-relaxed">We'll email your custom Growth &amp; Retention Roadmap to <strong id="lead-success-email" class="text-navy font-semibold"></strong> within 1–2 business days.</span>
             </div>
           </div>
 
-          <button
-            id="lead-reset-btn"
-            type="button"
-            class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline cursor-pointer"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
-            <span>Submit Another Inquiry</span>
-          </button>
+          <!-- Action Button -->
+          <div class="mt-6">
+            <button
+              id="lead-reset-btn"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-card px-5 py-2.5 text-sm font-bold text-navy hover:bg-panel hover:border-primary/40 shadow-xs transition-all cursor-pointer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-muted-foreground"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+              <span>Submit Another Inquiry</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
