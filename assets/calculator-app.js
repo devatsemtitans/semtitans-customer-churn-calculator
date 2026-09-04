@@ -1,5 +1,5 @@
 // SEMTITANS Customer Churn Rate & Retention Calculator
-// Standalone Client App
+// Standalone Client App with Niche-Specific Logic Engine
 
 (function () {
   const INDUSTRIES = [
@@ -7,6 +7,7 @@
       id: "saas",
       name: "SaaS / B2B Subscription",
       shortLabel: "SaaS",
+      isRecurring: true,
       starting: 1000,
       lost: 45,
       arpu: 120,
@@ -17,26 +18,48 @@
       typicalRange: "3.5% – 5.0% / mo",
       benchmarkDesc: "Top-quartile B2B SaaS companies maintain monthly churn below 2.5%.",
       retentionFocus: "Onboarding feature adoption & automated dunning",
+      fieldLabels: {
+        starting: "Active Paying Customers",
+        startingDesc: "Total active accounts or subscriptions at the start of the month.",
+        lost: "Canceled Accounts / Month",
+        lostDesc: "Subscribers who canceled or churned this month.",
+        arpu: "Monthly Revenue per Account (MRR / User)",
+        arpuDesc: "Average subscription fee billed per customer each month.",
+        ltv: "Customer Lifetime Value (LTV)",
+        ltvDesc: "Leave blank to auto-calculate from monthly retention (MRR × Lifespan)."
+      }
     },
     {
       id: "ecom",
-      name: "E-commerce & D2C Subscriptions",
+      name: "E-commerce & D2C Retail",
       shortLabel: "E-commerce",
-      starting: 2500,
-      lost: 175,
-      arpu: 48,
-      ltv: 450,
-      estCac: 65,
+      isRecurring: false,
+      starting: 1200,
+      lost: 108,
+      arpu: 159,
+      ltv: 159,
+      estCac: 45,
       healthyMax: 5.5,
       warningMax: 8.5,
       typicalRange: "5.5% – 8.0% / mo",
-      benchmarkDesc: "D2C subscription boxes & reorder programs typically experience 6% – 8% monthly churn.",
-      retentionFocus: "Post-purchase replenishment SMS & VIP rewards",
+      benchmarkDesc: "Standard retail: 70–80% of buyers purchase once. Subscriptions/reorders churn at ~6–8%/mo.",
+      retentionFocus: "Pre-purchase cart retargeting & post-purchase reorder flows",
+      fieldLabels: {
+        starting: "Active Monthly Buyers / Customers",
+        startingDesc: "Total purchasing customers or active repeat pool in your store.",
+        lost: "Lost / Non-Reordering Buyers",
+        lostDesc: "Past customers who did not place another order within expected window.",
+        arpu: "Average Order Value (AOV)",
+        arpuDesc: "Average total dollar amount spent per single cart/checkout.",
+        ltv: "Customer Lifetime Value (Total Lifetime Spend)",
+        ltvDesc: "Leave blank if customers buy once (defaults to 1st Order AOV). Enter repeat LTV if tracked."
+      }
     },
     {
       id: "agency",
       name: "Agency / B2B Retainer Services",
       shortLabel: "Agency",
+      isRecurring: true,
       starting: 35,
       lost: 1,
       arpu: 3000,
@@ -47,11 +70,22 @@
       typicalRange: "2.0% – 4.0% / mo",
       benchmarkDesc: "High-ticket service retainers require >95% monthly client retention for healthy compounding.",
       retentionFocus: "Quarterly business reviews (QBRs) & proactive ROI reporting",
+      fieldLabels: {
+        starting: "Active Retainer Clients",
+        startingDesc: "Total active business clients on ongoing monthly retainers.",
+        lost: "Retainer Clients Lost / Paused",
+        lostDesc: "Client contracts canceled or paused this month.",
+        arpu: "Average Monthly Client Retainer",
+        arpuDesc: "Average monthly fee paid per active client.",
+        ltv: "Client Lifetime Value (Total Contract Value)",
+        ltvDesc: "Leave blank to auto-calculate from retainer length (Retainer × Lifespan)."
+      }
     },
     {
       id: "apps",
       name: "Mobile App / Consumer Membership",
       shortLabel: "Consumer App",
+      isRecurring: true,
       starting: 5000,
       lost: 320,
       arpu: 15,
@@ -60,13 +94,24 @@
       healthyMax: 4.5,
       warningMax: 8.0,
       typicalRange: "5.0% – 8.0% / mo",
-      benchmarkDesc: "Consumer apps face aggressive 30-day drop-offs; retention push notifications are critical.",
+      benchmarkDesc: "Consumer apps face aggressive 30-day drop-offs; push notifications & onboarding are critical.",
       retentionFocus: "Day 1-7 in-app engagement & win-back push flows",
+      fieldLabels: {
+        starting: "Active Paid Subscribers",
+        startingDesc: "Total active paying members or premium app subscribers.",
+        lost: "Paid Subscriptions Canceled",
+        lostDesc: "Paying users who canceled or failed payment renewal this month.",
+        arpu: "Monthly Spend per Paying User",
+        arpuDesc: "Average monthly subscription or in-app spend per subscriber.",
+        ltv: "Subscriber Lifetime Value (LTV)",
+        ltvDesc: "Leave blank to auto-calculate from subscription lifespan."
+      }
     },
     {
       id: "custom",
       name: "Custom / Other Business Model",
       shortLabel: "Custom",
+      isRecurring: true,
       starting: 500,
       lost: 25,
       arpu: 100,
@@ -77,6 +122,16 @@
       typicalRange: "3.0% – 6.0% / mo",
       benchmarkDesc: "Custom business model metrics.",
       retentionFocus: "Lifecycle marketing & customer feedback loops",
+      fieldLabels: {
+        starting: "Active Customers / Accounts",
+        startingDesc: "Total active customers at the start of the measurement period.",
+        lost: "Lost Customers per Month",
+        lostDesc: "Customers who stopped buying or canceled their account.",
+        arpu: "Average Spend / Order Value",
+        arpuDesc: "Average revenue generated per customer per transaction/month.",
+        ltv: "Customer Lifetime Value (LTV)",
+        ltvDesc: "Leave blank to auto-calculate lifespan from churn rate."
+      }
     },
   ];
 
@@ -228,13 +283,38 @@
     const cardRisk = document.getElementById("card-risk");
     if (cardRisk) cardRisk.textContent = money(annualRisk);
 
-    // Ad Spend Scalability Score & Max CAC Calculations
-    const lifetimeMonths = churn > 0 ? Math.min(120, Math.max(1, 100 / churn)) : 36;
-    const computedLtv = ltv > 0 ? ltv : arpu * lifetimeMonths;
+    // Niche-Aware LTV & Lifetime Calculation
+    let computedLtv = 0;
+    let lifetimeMonths = 1;
+    let isSinglePurchase = false;
+
+    if (currentIndustry.id === "ecom") {
+      if (ltv > 0) {
+        computedLtv = ltv;
+        isSinglePurchase = computedLtv <= arpu * 1.15;
+        lifetimeMonths = arpu > 0 ? Math.max(1, Math.round(computedLtv / arpu)) : 1;
+      } else {
+        // E-Commerce with blank LTV defaults strictly to 1 Order (AOV) to prevent false SaaS compounding
+        computedLtv = arpu;
+        isSinglePurchase = true;
+        lifetimeMonths = 1;
+      }
+    } else {
+      // Recurring Subscription Models (SaaS, Agency, Apps, Custom)
+      if (ltv > 0) {
+        computedLtv = ltv;
+        lifetimeMonths = arpu > 0 ? Math.max(1, Math.round(computedLtv / arpu)) : (churn > 0 ? 100 / churn : 36);
+        isSinglePurchase = computedLtv <= arpu * 1.15;
+      } else {
+        lifetimeMonths = churn > 0 ? Math.min(120, Math.max(1, 100 / churn)) : 36;
+        computedLtv = arpu * lifetimeMonths;
+        isSinglePurchase = false;
+      }
+    }
+
     const targetCpaCeiling = computedLtv / 3;
     const firstOrderTargetCpa = arpu / 3;
     const breakevenCpaCeiling = computedLtv;
-    const isSinglePurchase = computedLtv <= arpu * 1.15;
 
     // Scalability Score
     let scaleScore = Math.round(100 - (churn / currentIndustry.healthyMax) * 35);
@@ -244,14 +324,14 @@
     let scaleBadgeText = "🟢 Ready to Scale";
     let scaleBadgeClass = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold border bg-opportunity/10 border-opportunity/30 text-opportunity";
     let scaleBarColor = "var(--color-opportunity)";
-    let scaleDescText = "Your churn is low and retention is healthy. Every $1 invested in Google & Meta Ads compounds with high customer lifetime value.";
+    let scaleDescText = `Your churn is low and retention is healthy. Every $1 invested in Google & Meta Ads compounds with high customer lifetime value.`;
     let scaleActionText = "Scale Google & Meta Ads";
 
     if (isSinglePurchase) {
       scaleBadgeText = "🟡 Scale via Remarketing";
       scaleBadgeClass = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold border bg-warning/10 border-warning/30 text-warning";
       scaleBarColor = "var(--color-warning)";
-      scaleDescText = "1-Purchase model detected. Prioritize pre-purchase remarketing (cart abandoners at $15–$25 CPA) to profit on Day 1, and post-purchase email/SMS to turn 1-time buyers into repeat orders.";
+      scaleDescText = "Single-order store model detected. Prioritize pre-purchase remarketing (cart abandoners at $15–$25 CPA) to profit on Day 1, and post-purchase email/SMS to turn 1-time buyers into repeat orders.";
       scaleActionText = "Pair Cold Ads with Remarketing";
     } else if (churn > currentIndustry.warningMax) {
       scaleBadgeText = "🔴 Fix Churn First";
@@ -288,9 +368,30 @@
     const scaleActionEl = document.getElementById("scale-action");
     if (scaleActionEl) scaleActionEl.textContent = scaleActionText;
 
-    // Max Allowable CAC Ceiling
+    // Max Allowable CAC Ceiling - Niche Dynamic Customization
+    const cacTitleEl = document.getElementById("cac-card-title");
+    if (cacTitleEl) {
+      cacTitleEl.textContent = isSinglePurchase
+        ? "Max Ad Spend per 1st Order (Day 1 Profit)"
+        : "Max Ad Spend per Customer (LTV Target)";
+    }
+
+    const cacCardBadgeEl = document.getElementById("cac-card-badge");
+    if (cacCardBadgeEl) {
+      cacCardBadgeEl.textContent = isSinglePurchase
+        ? "Target: 33% Ad Cost (3x Day 1 ROI)"
+        : "Target: 3x Ad ROI (30%+ Margin)";
+    }
+
     const cacValEl = document.getElementById("cac-ceiling-val");
-    if (cacValEl) cacValEl.textContent = money(targetCpaCeiling);
+    if (cacValEl) cacValEl.textContent = isSinglePurchase ? moneyPrecise(targetCpaCeiling) : money(targetCpaCeiling);
+
+    const cacCeilingSub = document.getElementById("cac-ceiling-sub");
+    if (cacCeilingSub) {
+      cacCeilingSub.textContent = isSinglePurchase
+        ? "Max Ad Spend (3x ROI on 1st Order)"
+        : "Max Ad Spend (3x ROI Target)";
+    }
 
     const cacFirstOrderEl = document.getElementById("cac-first-order-val");
     if (cacFirstOrderEl) cacFirstOrderEl.textContent = moneyPrecise(firstOrderTargetCpa);
@@ -304,14 +405,29 @@
     const cacBreakevenEl = document.getElementById("cac-breakeven-val");
     if (cacBreakevenEl) cacBreakevenEl.textContent = money(breakevenCpaCeiling);
 
+    const cacRow1Label = document.getElementById("cac-row1-label");
+    if (cacRow1Label) {
+      cacRow1Label.textContent = isSinglePurchase
+        ? "Target Ad Spend (33% of Order):"
+        : "Max Ad Cost for 1st Order Only:";
+    }
+
     const cacDescEl = document.getElementById("cac-ceiling-desc");
     if (cacDescEl) {
       if (isSinglePurchase) {
-        cacDescEl.innerHTML = `<strong>1-Purchase Model:</strong> Because customers currently only buy once (LTV = AOV: <strong class="text-navy">${money(
+        cacDescEl.innerHTML = `<strong>Single-Order Store Model:</strong> Because customers currently buy once (Average Order Value: <strong class="text-navy">${money(
           arpu
-        )}</strong>), keep your Day 1 ad cost below <strong class="text-opportunity font-bold">${money(
+        )}</strong>), keep your Day 1 ad spend below <strong class="text-opportunity font-bold">${moneyPrecise(
           targetCpaCeiling
-        )}</strong> for 3x profit. Use remarketing to turn 10% into repeat buyers to unlock scale.`;
+        )}</strong> to guarantee immediate profit. Use remarketing &amp; email flows to convert 10%+ into repeat buyers.`;
+      } else if (currentIndustry.id === "agency") {
+        cacDescEl.innerHTML = `Each client spends <strong class="text-navy">${money(
+          computedLtv
+        )}</strong> across an average <strong class="text-navy">${Math.round(
+          lifetimeMonths
+        )} months</strong> retainer. To maintain a healthy 30%+ profit margin, never spend more than <strong class="text-opportunity font-bold">${money(
+          targetCpaCeiling
+        )}</strong> on outbound/ads to acquire a client.`;
       } else {
         cacDescEl.innerHTML = `Each customer spends <strong class="text-navy">${money(
           computedLtv
@@ -358,44 +474,69 @@
       const rows = [0.5, 1.0, 2.0, 3.0].filter((p) => p <= Math.max(0.5, churn));
       matrixBody.innerHTML = rows
         .map((pts) => {
-          const extra = Math.max(0, starting * (pts / 100));
-          const ann = extra * arpu * 12;
+          const newRate = Math.max(0, churn - pts);
+          const savedMo =
+            newRate === 0
+              ? lost
+              : Math.min(lost, Math.max(0, starting * (pts / 100)));
+          const revSaved =
+            newRate === 0 ? annualRisk : savedMo * arpu * 12;
+          const cacSaved = savedMo * 12 * estCac;
+          const roiMult = ((revSaved + cacSaved) / (retentionCost || 1)).toFixed(1);
+
           return `
-          <tr>
-            <td class="py-2.5 font-bold text-navy">-${pts.toFixed(1)}% Churn</td>
-            <td class="py-2.5 text-foreground font-medium">+${num(extra)}</td>
-            <td class="py-2.5 font-extrabold text-opportunity">${money(ann)}</td>
-          </tr>
-        `;
+            <tr class="hover:bg-muted/40 transition">
+              <td class="px-5 py-4 font-bold text-primary font-display whitespace-nowrap">-${pts.toFixed(1)}%</td>
+              <td class="px-5 py-4 font-semibold text-navy whitespace-nowrap">${newRate.toFixed(1)}%</td>
+              <td class="px-5 py-4 font-medium text-foreground whitespace-nowrap">+${num(savedMo)}/mo</td>
+              <td class="px-5 py-4 font-extrabold text-opportunity font-display whitespace-nowrap">${money(revSaved)}</td>
+              <td class="px-5 py-4 font-semibold text-foreground whitespace-nowrap">${money(cacSaved)}</td>
+              <td class="px-5 py-4 font-bold text-navy whitespace-nowrap">${roiMult}x</td>
+            </tr>
+          `;
         })
         .join("");
     }
 
-    const ltvBox = document.getElementById("ltv-risk-box");
-    if (ltvBox) {
-      if (ltv > 0) {
-        ltvBox.style.display = "block";
-        ltvBox.innerHTML = `<span class="font-bold text-navy">Total Customer Lifetime Value at Risk:</span> ${money(
-          annualLost * ltv
-        )} across customer lifespans.`;
+    // Dynamic Strategy Card Text
+    const insightStrat = document.getElementById("insight-strategy-text");
+    if (insightStrat) {
+      if (isSinglePurchase) {
+        insightStrat.textContent = `Your business has a single-order model. Paid advertising must be profitable on Day 1 (CPA < $${(
+          arpu / 3
+        ).toFixed(
+          0
+        )}). Pair cold Meta/Google campaigns with post-purchase email & SMS to unlock repeat purchases.`;
+      } else if (churn <= currentIndustry.healthyMax) {
+        insightStrat.textContent = `Retention is rock solid at ${churn.toFixed(
+          1
+        )}%. You can aggressively scale cold Meta and Google Search campaigns up to a target CAC of ${money(
+          targetCpaCeiling
+        )}.`;
       } else {
-        ltvBox.style.display = "none";
+        insightStrat.textContent = `At ${churn.toFixed(
+          1
+        )}% churn, customer drop-offs are reducing ad ROI. Focus paid ads on high-intent Google Search and precision retargeting while optimizing onboarding.`;
       }
     }
 
-    // Update URL query parameters
     updateUrlParams(starting, lost, arpu, ltv);
   }
 
   function drawGauge(churn, statusText, badgeColor, msgText) {
-    const fraction = Math.min(churn, 12) / 12;
-    const angle = fraction * 180;
-    const r = 80;
-    const cx = 100;
-    const cy = 100;
-    const rad = ((180 - angle) * Math.PI) / 180;
-    const nx = cx + r * Math.cos(rad);
-    const ny = cy - r * Math.sin(rad);
+    const maxScale = Math.max(12, currentIndustry.warningMax * 1.5);
+    const fraction = Math.min(1, Math.max(0, churn / maxScale));
+
+    const cx = 140,
+      cy = 135,
+      r = 95;
+    const startAngle = Math.PI;
+    const endAngle = 2 * Math.PI;
+    const currentAngle = startAngle + fraction * (endAngle - startAngle);
+
+    const nx = cx + (r - 15) * Math.cos(currentAngle);
+    const ny = cy + (r - 15) * Math.sin(currentAngle);
+
     const circumference = Math.PI * r;
 
     const arc = document.getElementById("gauge-arc");
@@ -465,6 +606,29 @@
       document.getElementById("lost").value = ind.lost;
       document.getElementById("arpu").value = ind.arpu;
       document.getElementById("ltv").value = ind.ltv;
+    }
+
+    // Dynamic Field Labels & Helper Descriptions
+    if (ind.fieldLabels) {
+      const lblStarting = document.getElementById("lbl-starting");
+      const descStarting = document.getElementById("desc-starting");
+      if (lblStarting) lblStarting.textContent = ind.fieldLabels.starting;
+      if (descStarting) descStarting.textContent = ind.fieldLabels.startingDesc;
+
+      const lblLost = document.getElementById("lbl-lost");
+      const descLost = document.getElementById("desc-lost");
+      if (lblLost) lblLost.textContent = ind.fieldLabels.lost;
+      if (descLost) descLost.innerHTML = `${ind.fieldLabels.lostDesc} <span class="text-primary font-medium">(Annual tracker? Divide annual losses by 12)</span>`;
+
+      const lblArpu = document.getElementById("lbl-arpu");
+      const descArpu = document.getElementById("desc-arpu");
+      if (lblArpu) lblArpu.textContent = ind.fieldLabels.arpu;
+      if (descArpu) descArpu.textContent = ind.fieldLabels.arpuDesc;
+
+      const lblLtv = document.getElementById("lbl-ltv");
+      const descLtv = document.getElementById("desc-ltv");
+      if (lblLtv) lblLtv.innerHTML = `${ind.fieldLabels.ltv} <span class="text-xs font-normal text-muted-foreground">(Optional)</span>`;
+      if (descLtv) descLtv.textContent = ind.fieldLabels.ltvDesc;
     }
 
     // Benchmark card
@@ -597,16 +761,6 @@ ${window.location.href}`;
     const successName = document.getElementById("lead-success-name");
     const successCompany = document.getElementById("lead-success-company");
     const successEmail = document.getElementById("lead-success-email");
-    const resetFormBtn = document.getElementById("lead-reset-btn");
-
-    if (resetFormBtn && leadForm && successCard) {
-      resetFormBtn.addEventListener("click", () => {
-        successCard.classList.add("hidden");
-        leadForm.classList.remove("hidden");
-        leadForm.reset();
-        document.getElementById("lead-form-wrapper")?.scrollIntoView({ behavior: "smooth", block: "center" });
-      });
-    }
 
     if (leadForm) {
       leadForm.addEventListener("submit", async (e) => {

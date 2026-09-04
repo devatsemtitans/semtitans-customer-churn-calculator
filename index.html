@@ -193,28 +193,28 @@
             </div>
 
             <div>
-              <label for="starting" class="mb-2 block text-base font-bold text-navy">
-                Active Customers / Buyers
+              <label id="lbl-starting" for="starting" class="mb-2 block text-base font-bold text-navy">
+                Active Paying Customers
               </label>
               <input id="starting" type="number" min="1" value="1000" class="w-full rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
-              <p class="mt-1.5 text-xs text-muted-foreground">
-                Total active customers or monthly buyers at the start of the month.
+              <p id="desc-starting" class="mt-1.5 text-xs text-muted-foreground">
+                Total active accounts or subscriptions at the start of the month.
               </p>
             </div>
 
             <div>
-              <label for="lost" class="mb-2 block text-base font-bold text-navy">
-                Lost / Inactive Buyers per Month
+              <label id="lbl-lost" for="lost" class="mb-2 block text-base font-bold text-navy">
+                Canceled Accounts / Month
               </label>
               <input id="lost" type="number" min="0" value="45" class="w-full rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
-              <p class="mt-1.5 text-xs text-muted-foreground">
-                Customers who stopped buying or cancelled this month. <span class="text-primary font-medium">(Annual tracker? Divide annual losses by 12)</span>
+              <p id="desc-lost" class="mt-1.5 text-xs text-muted-foreground">
+                Subscribers who canceled or churned this month. <span class="text-primary font-medium">(Annual tracker? Divide annual losses by 12)</span>
               </p>
             </div>
 
             <div>
-              <label for="arpu" class="mb-2 block text-base font-bold text-navy">
-                Average Order Value (AOV) / Monthly Spend ($)
+              <label id="lbl-arpu" for="arpu" class="mb-2 block text-base font-bold text-navy">
+                Monthly Revenue per Account (MRR / User)
               </label>
               <div class="relative">
                 <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base font-semibold text-muted-foreground">
@@ -222,13 +222,13 @@
                 </span>
                 <input id="arpu" type="number" min="1" value="120" class="w-full rounded-xl border border-input bg-card pl-8 pr-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
               </div>
-              <p class="mt-1.5 text-xs text-muted-foreground">
-                Average dollar amount a customer spends per purchase or month.
+              <p id="desc-arpu" class="mt-1.5 text-xs text-muted-foreground">
+                Average subscription fee billed per customer each month.
               </p>
             </div>
 
             <div>
-              <label for="ltv" class="mb-2 block text-base font-bold text-navy">
+              <label id="lbl-ltv" for="ltv" class="mb-2 block text-base font-bold text-navy">
                 Customer Lifetime Value (LTV) <span class="text-xs font-normal text-muted-foreground">(Optional)</span>
               </label>
               <div class="relative">
@@ -237,8 +237,8 @@
                 </span>
                 <input id="ltv" type="number" min="0" value="2400" placeholder="Auto-calculated if blank" class="w-full rounded-xl border border-input bg-card pl-8 pr-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
               </div>
-              <p class="mt-1.5 text-xs text-muted-foreground">
-                Leave blank to auto-calculate lifespan from churn rate.
+              <p id="desc-ltv" class="mt-1.5 text-xs text-muted-foreground">
+                Leave blank to auto-calculate from monthly retention (MRR × Lifespan).
               </p>
             </div>
 
@@ -351,11 +351,11 @@
                   <div class="grid h-8 w-8 place-items-center rounded-lg bg-opportunity/10 text-opportunity">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
                   </div>
-                  <h3 class="font-display text-base sm:text-lg font-bold text-navy">
+                  <h3 id="cac-card-title" class="font-display text-base sm:text-lg font-bold text-navy">
                     Max Ad Spend per Customer
                   </h3>
                 </div>
-                <span class="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-md" title="The industry benchmark rule: 33% ads, 33% COGS, 33% net profit">
+                <span id="cac-card-badge" class="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-md" title="The industry benchmark rule: 33% ads, 33% COGS, 33% net profit">
                   Target: 3x Ad ROI (30%+ Margin)
                 </span>
               </div>
@@ -364,7 +364,7 @@
                 <span id="cac-ceiling-val" class="font-display text-3xl sm:text-4xl font-extrabold text-opportunity">
                   $889
                 </span>
-                <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                <span id="cac-ceiling-sub" class="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   Max Ad Spend (3x ROI Target)
                 </span>
               </div>
@@ -376,11 +376,11 @@
 
             <div class="mt-4 pt-3 border-t border-border/60 space-y-1.5 text-xs text-muted-foreground font-medium">
               <div class="flex items-center justify-between">
-                <span>Max Ad Cost for 1st Order Only:</span>
+                <span id="cac-row1-label">Max Ad Cost for 1st Order Only:</span>
                 <span id="cac-first-order-val" class="font-bold text-navy">$40.00</span>
               </div>
               <div class="flex items-center justify-between">
-                <span>Absolute Breakeven Limit:</span>
+                <span id="cac-row2-label">Absolute Breakeven Limit:</span>
                 <span id="cac-breakeven-val" class="font-bold text-risk">$2,667</span>
               </div>
             </div>
