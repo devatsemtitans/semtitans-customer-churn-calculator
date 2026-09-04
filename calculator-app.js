@@ -481,17 +481,12 @@
               : Math.min(lost, Math.max(0, starting * (pts / 100)));
           const revSaved =
             newRate === 0 ? annualRisk : savedMo * arpu * 12;
-          const cacSaved = savedMo * 12 * estCac;
-          const roiMult = ((revSaved + cacSaved) / (retentionCost || 1)).toFixed(1);
 
           return `
             <tr class="hover:bg-muted/40 transition">
-              <td class="px-5 py-4 font-bold text-primary font-display whitespace-nowrap">-${pts.toFixed(1)}%</td>
-              <td class="px-5 py-4 font-semibold text-navy whitespace-nowrap">${newRate.toFixed(1)}%</td>
-              <td class="px-5 py-4 font-medium text-foreground whitespace-nowrap">+${num(savedMo)}/mo</td>
-              <td class="px-5 py-4 font-extrabold text-opportunity font-display whitespace-nowrap">${money(revSaved)}</td>
-              <td class="px-5 py-4 font-semibold text-foreground whitespace-nowrap">${money(cacSaved)}</td>
-              <td class="px-5 py-4 font-bold text-navy whitespace-nowrap">${roiMult}x</td>
+              <td class="py-3 px-3 font-bold text-primary font-display whitespace-nowrap">-${pts.toFixed(1)}% <span class="text-xs font-normal text-muted-foreground">(${newRate.toFixed(1)}%)</span></td>
+              <td class="py-3 px-3 font-semibold text-navy whitespace-nowrap">+${num(savedMo)} / mo</td>
+              <td class="py-3 px-3 font-extrabold text-opportunity font-display whitespace-nowrap">+${money(revSaved)}</td>
             </tr>
           `;
         })
