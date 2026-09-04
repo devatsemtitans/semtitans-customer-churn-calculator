@@ -234,9 +234,11 @@
     const targetCpaCeiling = computedLtv / 3;
     const firstOrderTargetCpa = arpu / 3;
     const breakevenCpaCeiling = computedLtv;
+    const isSinglePurchase = computedLtv <= arpu * 1.15;
 
     // Scalability Score
     let scaleScore = Math.round(100 - (churn / currentIndustry.healthyMax) * 35);
+    if (isSinglePurchase && scaleScore > 65) scaleScore = 65;
     scaleScore = Math.max(15, Math.min(98, scaleScore));
 
     let scaleBadgeText = "🟢 Ready to Scale";
@@ -245,7 +247,13 @@
     let scaleDescText = "Your churn is low and retention is healthy. Every $1 invested in Google & Meta Ads compounds with high customer lifetime value.";
     let scaleActionText = "Scale Google & Meta Ads";
 
-    if (churn > currentIndustry.warningMax) {
+    if (isSinglePurchase) {
+      scaleBadgeText = "🟡 Scale via Remarketing";
+      scaleBadgeClass = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold border bg-warning/10 border-warning/30 text-warning";
+      scaleBarColor = "var(--color-warning)";
+      scaleDescText = "1-Purchase model detected. Prioritize pre-purchase remarketing (cart abandoners at $15–$25 CPA) to profit on Day 1, and post-purchase email/SMS to turn 1-time buyers into repeat orders.";
+      scaleActionText = "Pair Cold Ads with Remarketing";
+    } else if (churn > currentIndustry.warningMax) {
       scaleBadgeText = "🔴 Fix Churn First";
       scaleBadgeClass = "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold border bg-risk/10 border-risk/30 text-risk";
       scaleBarColor = "var(--color-risk)";
@@ -298,13 +306,21 @@
 
     const cacDescEl = document.getElementById("cac-ceiling-desc");
     if (cacDescEl) {
-      cacDescEl.innerHTML = `Each customer spends <strong class="text-navy">${money(
-        computedLtv
-      )}</strong> over <strong class="text-navy">${Math.round(
-        lifetimeMonths
-      )} months</strong>. To maintain a healthy 30%+ profit margin (the 3x Golden Ratio), never spend more than <strong class="text-opportunity font-bold">${money(
-        targetCpaCeiling
-      )}</strong> on ads to acquire them.`;
+      if (isSinglePurchase) {
+        cacDescEl.innerHTML = `<strong>1-Purchase Model:</strong> Because customers currently only buy once (LTV = AOV: <strong class="text-navy">${money(
+          arpu
+        )}</strong>), keep your Day 1 ad cost below <strong class="text-opportunity font-bold">${money(
+          targetCpaCeiling
+        )}</strong> for 3x profit. Use remarketing to turn 10% into repeat buyers to unlock scale.`;
+      } else {
+        cacDescEl.innerHTML = `Each customer spends <strong class="text-navy">${money(
+          computedLtv
+        )}</strong> over <strong class="text-navy">${Math.round(
+          lifetimeMonths
+        )} months</strong>. To maintain a healthy 30%+ profit margin (the 3x Golden Ratio), never spend more than <strong class="text-opportunity font-bold">${money(
+          targetCpaCeiling
+        )}</strong> on ads to acquire them.`;
+      }
     }
 
     // Retention Simulator
