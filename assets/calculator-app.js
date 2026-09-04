@@ -795,7 +795,7 @@ Model URL: ${window.location.href}`;
 
         const payload = new URLSearchParams();
         payload.append("action", "wpforms_submit");
-        payload.append("wpforms[id]", "32852");
+        payload.append("wpforms[id]", "32856");
         payload.append("wpforms[fields][0]", name);
         payload.append("wpforms[fields][1]", email);
         payload.append("wpforms[fields][2]", company);

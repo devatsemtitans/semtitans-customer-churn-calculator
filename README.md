@@ -1,4 +1,4 @@
-﻿# SEMTITANS Customer Churn Rate & Retention Loss Calculator
+# SEMTITANS Customer Churn Rate & Retention Loss Calculator
 
 An interactive, high-converting **Customer Churn Rate Calculator & Revenue Loss Analysis** web application engineered for **SEMTITANS** (Performance Marketing Agency specializing in Google Ads, Meta Ads, SEO, and CRO).
 
@@ -35,7 +35,8 @@ Designed specifically for founders, CMOs, and marketing decision-makers across *
    - **Consumer Apps & Memberships** (5.0%–8.0% monthly benchmark)
 
 5. **Integrated Lead Capture**:
-   - Seamless AJAX submission directly mapped to **WPForms** ID `32852` (`/wp-admin/admin-ajax.php`).
+   - Seamless AJAX submission directly mapped to dedicated **WPForms** ID `32856` (`/wp-admin/admin-ajax.php`).
+   - Separate lead entries accessible in WordPress at `/wp-admin/admin.php?page=vxcf_leads&tab=entries&form_id=wp_32856`.
    - Inline personalized confirmation card and high-trust security seals.
 
 6. **URL State Persistence & Team Sharing**:
