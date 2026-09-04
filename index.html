@@ -100,7 +100,7 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="mx-auto max-w-4xl px-4 pt-10 pb-6 text-center sm:px-6 sm:pt-14 sm:pb-8">
+  <section class="mx-auto max-w-4xl px-4 pt-12 pb-8 text-center sm:px-6 sm:pt-16 sm:pb-12">
     <p class="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-xs sm:text-sm font-bold uppercase tracking-widest text-accent-foreground">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
       Customer Churn &amp; Revenue Retention Calculator
@@ -113,24 +113,24 @@
     </p>
 
     <!-- 1-Click Industry Presets -->
-    <div class="mt-6 flex flex-wrap items-center justify-center gap-2.5">
-      <span class="text-sm font-bold text-muted-foreground mr-1.5 flex items-center gap-1.5">
+    <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+      <span class="text-sm font-bold text-muted-foreground mr-1 flex items-center gap-1.5">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-primary"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
         Industry Presets:
       </span>
-      <button data-industry="saas" class="preset-btn rounded-full px-4 py-2 text-sm font-semibold transition-all bg-primary text-primary-foreground shadow-md shadow-primary/30">
+      <button data-industry="saas" class="preset-btn rounded-full px-5 py-2.5 text-sm font-semibold transition-all bg-primary text-primary-foreground shadow-md shadow-primary/30">
         SaaS
       </button>
-      <button data-industry="ecom" class="preset-btn rounded-full px-4 py-2 text-sm font-semibold transition-all bg-panel hover:bg-panel/80 text-foreground border border-border">
+      <button data-industry="ecom" class="preset-btn rounded-full px-5 py-2.5 text-sm font-semibold transition-all bg-panel hover:bg-panel/80 text-foreground border border-border">
         E-commerce
       </button>
-      <button data-industry="agency" class="preset-btn rounded-full px-4 py-2 text-sm font-semibold transition-all bg-panel hover:bg-panel/80 text-foreground border border-border">
+      <button data-industry="agency" class="preset-btn rounded-full px-5 py-2.5 text-sm font-semibold transition-all bg-panel hover:bg-panel/80 text-foreground border border-border">
         Agency
       </button>
-      <button data-industry="apps" class="preset-btn rounded-full px-4 py-2 text-sm font-semibold transition-all bg-panel hover:bg-panel/80 text-foreground border border-border">
+      <button data-industry="apps" class="preset-btn rounded-full px-5 py-2.5 text-sm font-semibold transition-all bg-panel hover:bg-panel/80 text-foreground border border-border">
         Consumer App
       </button>
-      <button id="btn-reset" type="button" class="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 cursor-pointer" title="Reset to default">
+      <button id="btn-reset" type="button" class="rounded-full px-4 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 cursor-pointer" title="Reset to default">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
         Reset
       </button>
@@ -138,13 +138,13 @@
   </section>
 
   <!-- Main Calculator Layout -->
-  <main class="mx-auto max-w-6xl px-4 pb-12 sm:px-6 sm:pb-16">
-    <div class="grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+  <main class="mx-auto max-w-6xl px-4 pb-16 sm:px-6 sm:pb-20 lg:pb-24">
+    <div class="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-10">
       
       <!-- Inputs Section -->
       <section aria-labelledby="inputs-heading" class="min-w-0">
-        <div class="min-w-0 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
-          <div class="flex items-center justify-between">
+        <div class="min-w-0 rounded-2xl border border-border bg-card p-7 sm:p-8 lg:p-9 shadow-sm">
+          <div class="flex items-center justify-between mb-6">
             <div>
               <p class="text-xs font-bold uppercase tracking-widest text-primary">Your Business Numbers</p>
               <h2 id="inputs-heading" class="mt-1 font-display text-2xl font-bold text-navy">
@@ -156,16 +156,16 @@
             </div>
           </div>
 
-          <div class="mt-6 space-y-5">
+          <div class="space-y-6">
             <!-- Dropdown -->
             <div>
               <div class="flex items-center justify-between mb-2">
-                <label for="businessType" class="mb-2 block text-base font-bold text-navy">
+                <label for="businessType" class="block text-sm sm:text-base font-bold text-navy">
                   Business Model / Industry
                 </label>
                 <span class="text-xs text-primary font-bold">Auto-updates benchmarks</span>
               </div>
-              <select id="businessType" class="w-full rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25 font-semibold">
+              <select id="businessType" class="w-full rounded-xl border border-input bg-card px-4.5 py-3.5 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25 font-semibold">
                 <option value="saas">SaaS / B2B Subscription</option>
                 <option value="ecom">E-commerce &amp; D2C Subscriptions</option>
                 <option value="agency">Agency / B2B Retainer Services</option>
@@ -174,7 +174,7 @@
               </select>
 
               <!-- Dynamic Benchmark Info Box -->
-              <div class="mt-3 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm">
+              <div class="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-5 text-sm">
                 <div class="flex items-center justify-between text-navy font-bold">
                   <span class="flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-primary"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
@@ -182,10 +182,10 @@
                   </span>
                   <span id="benchmark-range" class="text-primary font-extrabold">3.5% – 5.0% / mo</span>
                 </div>
-                <p id="benchmark-desc" class="mt-1.5 text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                <p id="benchmark-desc" class="mt-2 text-muted-foreground text-xs sm:text-sm leading-relaxed">
                   Top-quartile B2B SaaS companies maintain monthly churn below 2.5%.
                 </p>
-                <div class="mt-2.5 flex items-center gap-2 pt-2.5 border-t border-border/50 text-xs sm:text-sm">
+                <div class="mt-3 flex items-center gap-2 pt-3 border-t border-border/50 text-xs sm:text-sm">
                   <span class="font-bold text-navy">Top Growth Fix:</span>
                   <span id="benchmark-focus" class="text-foreground font-medium">Onboarding feature adoption &amp; automated dunning</span>
                 </div>
@@ -193,34 +193,34 @@
             </div>
 
             <div>
-              <label id="lbl-starting" for="starting" class="mb-2 block text-base font-bold text-navy">
+              <label id="lbl-starting" for="starting" class="mb-2 block text-sm sm:text-base font-bold text-navy">
                 Active Paying Customers
               </label>
-              <input id="starting" type="number" min="1" value="1000" class="w-full rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
+              <input id="starting" type="number" min="1" value="1000" class="w-full rounded-xl border border-input bg-card px-4.5 py-3.5 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
               <p id="desc-starting" class="mt-1.5 text-xs text-muted-foreground">
                 Total active accounts or subscriptions at the start of the month.
               </p>
             </div>
 
             <div>
-              <label id="lbl-lost" for="lost" class="mb-2 block text-base font-bold text-navy">
+              <label id="lbl-lost" for="lost" class="mb-2 block text-sm sm:text-base font-bold text-navy">
                 Canceled Accounts / Month
               </label>
-              <input id="lost" type="number" min="0" value="45" class="w-full rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
+              <input id="lost" type="number" min="0" value="45" class="w-full rounded-xl border border-input bg-card px-4.5 py-3.5 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
               <p id="desc-lost" class="mt-1.5 text-xs text-muted-foreground">
                 Subscribers who canceled or churned this month. <span class="text-primary font-medium">(Annual tracker? Divide annual losses by 12)</span>
               </p>
             </div>
 
             <div>
-              <label id="lbl-arpu" for="arpu" class="mb-2 block text-base font-bold text-navy">
+              <label id="lbl-arpu" for="arpu" class="mb-2 block text-sm sm:text-base font-bold text-navy">
                 Monthly Revenue per Account (MRR / User)
               </label>
               <div class="relative">
-                <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base font-semibold text-muted-foreground">
+                <span class="pointer-events-none absolute left-4.5 top-1/2 -translate-y-1/2 text-base font-semibold text-muted-foreground">
                   $
                 </span>
-                <input id="arpu" type="number" min="1" value="120" class="w-full rounded-xl border border-input bg-card pl-8 pr-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
+                <input id="arpu" type="number" min="1" value="120" class="w-full rounded-xl border border-input bg-card pl-9 pr-4.5 py-3.5 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
               </div>
               <p id="desc-arpu" class="mt-1.5 text-xs text-muted-foreground">
                 Average subscription fee billed per customer each month.
@@ -228,26 +228,27 @@
             </div>
 
             <div>
-              <label id="lbl-ltv" for="ltv" class="mb-2 block text-base font-bold text-navy">
+              <label id="lbl-ltv" for="ltv" class="mb-2 block text-sm sm:text-base font-bold text-navy">
                 Customer Lifetime Value (LTV) <span class="text-xs font-normal text-muted-foreground">(Optional)</span>
               </label>
               <div class="relative">
-                <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base font-semibold text-muted-foreground">
+                <span class="pointer-events-none absolute left-4.5 top-1/2 -translate-y-1/2 text-base font-semibold text-muted-foreground">
                   $
                 </span>
-                <input id="ltv" type="number" min="0" value="2400" placeholder="Auto-calculated if blank" class="w-full rounded-xl border border-input bg-card pl-8 pr-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
+                <input id="ltv" type="number" min="0" value="2400" placeholder="Auto-calculated if blank" class="w-full rounded-xl border border-input bg-card pl-9 pr-4.5 py-3.5 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25" />
               </div>
               <p id="desc-ltv" class="mt-1.5 text-xs text-muted-foreground">
                 Leave blank to auto-calculate from monthly retention (MRR × Lifespan).
               </p>
             </div>
+          </div>
 
-          <div class="mt-6 rounded-xl border border-border bg-panel p-4 text-sm text-muted-foreground">
+          <div class="mt-7 rounded-xl border border-border bg-panel/70 p-5 text-sm text-muted-foreground">
             <div class="flex items-center gap-2 font-bold text-navy">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-primary"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
               Live calculation active:
             </div>
-            <p class="mt-1.5 text-xs sm:text-sm leading-relaxed">
+            <p class="mt-2 text-xs sm:text-sm leading-relaxed">
               Changing any input instantly recalibrates your <strong>churn rate analysis</strong> and revenue recovery model.
             </p>
           </div>
@@ -255,64 +256,64 @@
       </section>
 
       <!-- Results Section -->
-      <section aria-labelledby="results-heading" class="min-w-0 space-y-6">
+      <section aria-labelledby="results-heading" class="min-w-0 space-y-7 sm:space-y-8">
 
         <!-- Metric Cards -->
-        <div class="grid gap-4 grid-cols-1 sm:grid-cols-3">
-          <div class="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs flex flex-col justify-between h-full">
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-3">
+          <div class="rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs flex flex-col justify-between h-full">
             <div>
               <div class="flex items-center gap-2 text-muted-foreground">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4.5 w-4.5 text-muted-foreground"><path d="M16 17h6v-6"></path><path d="m22 17-8.5-8.5-5 5L2 7"></path></svg>
                 <p class="text-xs font-bold uppercase tracking-wider">Monthly Churn Rate</p>
               </div>
-              <p id="card-churn" class="mt-2.5 text-3xl font-extrabold font-display sm:text-4xl text-navy tracking-tight">
+              <p id="card-churn" class="mt-3 text-3xl font-extrabold font-display sm:text-4xl text-navy tracking-tight">
                 4.5%
               </p>
             </div>
-            <p id="card-churn-sub" class="mt-3 text-xs sm:text-sm text-muted-foreground font-medium pt-2.5 border-t border-border/50">
+            <p id="card-churn-sub" class="mt-4 text-xs sm:text-sm text-muted-foreground font-medium pt-3.5 border-t border-border/50">
               45 of 1,000 buyers / mo
             </p>
           </div>
 
-          <div class="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs flex flex-col justify-between h-full">
+          <div class="rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs flex flex-col justify-between h-full">
             <div>
               <div class="flex items-center gap-2 text-muted-foreground">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4.5 w-4.5 text-muted-foreground"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
                 <p class="text-xs font-bold uppercase tracking-wider">Lost Buyers / Year</p>
               </div>
-              <p id="card-loss" class="mt-2.5 text-3xl font-extrabold font-display sm:text-4xl text-navy tracking-tight">
+              <p id="card-loss" class="mt-3 text-3xl font-extrabold font-display sm:text-4xl text-navy tracking-tight">
                 540
               </p>
             </div>
-            <p id="card-loss-sub" class="mt-3 text-xs sm:text-sm text-muted-foreground font-medium pt-2.5 border-t border-border/50">
+            <p id="card-loss-sub" class="mt-4 text-xs sm:text-sm text-muted-foreground font-medium pt-3.5 border-t border-border/50">
               45 buyers lost / month
             </p>
           </div>
 
-          <div class="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs flex flex-col justify-between h-full">
+          <div class="rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs flex flex-col justify-between h-full">
             <div>
               <div class="flex items-center gap-2 text-muted-foreground">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4.5 w-4.5 text-muted-foreground"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>
                 <p class="text-xs font-bold uppercase tracking-wider">Annual Revenue Lost</p>
               </div>
-              <p id="card-risk" class="mt-2.5 text-3xl font-extrabold font-display sm:text-4xl text-risk tracking-tight">
+              <p id="card-risk" class="mt-3 text-3xl font-extrabold font-display sm:text-4xl text-risk tracking-tight">
                 $64,800
               </p>
             </div>
-            <p class="mt-3 text-xs sm:text-sm text-muted-foreground font-medium pt-2.5 border-t border-border/50">
+            <p class="mt-4 text-xs sm:text-sm text-muted-foreground font-medium pt-3.5 border-t border-border/50">
               Total sales lost from churned buyers
             </p>
           </div>
         </div>
 
         <!-- Decision Intelligence: Ad Scalability & Max CAC Ceiling -->
-        <div class="grid gap-4 sm:grid-cols-2">
+        <div class="grid gap-5 sm:grid-cols-2">
           <!-- Card 1: Ad Spend Scalability Score -->
-          <div class="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs flex flex-col justify-between h-full">
+          <div class="rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs flex flex-col justify-between h-full">
             <div>
               <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="grid h-8 w-8 place-items-center rounded-lg bg-primary/10 text-primary">
+                <div class="flex items-center gap-2.5">
+                  <div class="grid h-9 w-9 place-items-center rounded-lg bg-primary/10 text-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
                   </div>
                   <h3 class="font-display text-base sm:text-lg font-bold text-navy tracking-tight">
@@ -324,7 +325,7 @@
                 </span>
               </div>
 
-              <div class="mt-4 flex items-baseline gap-2">
+              <div class="mt-5 flex items-baseline gap-2.5">
                 <span id="scale-score" class="font-display text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
                   85/100
                 </span>
@@ -334,27 +335,27 @@
               </div>
 
               <!-- Progress Bar -->
-              <div class="mt-3 h-2.5 w-full overflow-hidden rounded-full bg-panel border border-border/50">
+              <div class="mt-4 h-2.5 w-full overflow-hidden rounded-full bg-panel border border-border/50">
                 <div id="scale-bar" class="h-full rounded-full bg-opportunity transition-all duration-500" style="width: 85%"></div>
               </div>
 
-              <p id="scale-desc" class="mt-3.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p id="scale-desc" class="mt-4 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Your churn is low and retention is healthy. Every $1 invested in Google &amp; Meta Ads compounds with high customer lifetime value.
               </p>
             </div>
 
-            <div class="mt-4 pt-3.5 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground font-medium">
+            <div class="mt-5 pt-4 border-t border-border/60 flex items-center justify-between text-xs sm:text-sm text-muted-foreground font-medium">
               <span>Paid Ad Strategy:</span>
               <span id="scale-action" class="font-bold text-navy">Scale Google &amp; Meta Ads</span>
             </div>
           </div>
 
           <!-- Card 2: Max Ad Spend per Customer -->
-          <div class="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs flex flex-col justify-between h-full">
+          <div class="rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs flex flex-col justify-between h-full">
             <div>
               <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                  <div class="grid h-8 w-8 place-items-center rounded-lg bg-opportunity/10 text-opportunity">
+                <div class="flex items-center gap-2.5">
+                  <div class="grid h-9 w-9 place-items-center rounded-lg bg-opportunity/10 text-opportunity">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
                   </div>
                   <h3 id="cac-card-title" class="font-display text-base sm:text-lg font-bold text-navy tracking-tight">
@@ -366,7 +367,7 @@
                 </span>
               </div>
 
-              <div class="mt-4 flex items-baseline gap-2">
+              <div class="mt-5 flex items-baseline gap-2.5">
                 <span id="cac-ceiling-val" class="font-display text-3xl sm:text-4xl font-extrabold text-opportunity tracking-tight">
                   $889
                 </span>
@@ -375,12 +376,12 @@
                 </span>
               </div>
 
-              <p class="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed" id="cac-ceiling-desc">
+              <p class="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed" id="cac-ceiling-desc">
                 Each customer spends <strong id="cac-ltv-val" class="text-navy">$2,667</strong> over <strong id="cac-lifetime-months" class="text-navy">22 months</strong>. To maintain a healthy 30%+ profit margin (the 3x Golden Ratio), never spend more than <strong class="text-opportunity font-bold" id="cac-desc-target">$889</strong> on ads to acquire them.
               </p>
             </div>
 
-            <div class="mt-4 pt-3.5 border-t border-border/60 space-y-1.5 text-xs text-muted-foreground font-medium">
+            <div class="mt-5 pt-4 border-t border-border/60 space-y-2 text-xs sm:text-sm text-muted-foreground font-medium">
               <div class="flex items-center justify-between">
                 <span id="cac-row1-label">Max Ad Cost for 1st Order Only:</span>
                 <span id="cac-first-order-val" class="font-bold text-navy">$40.00</span>
@@ -394,24 +395,24 @@
         </div>
 
         <!-- Retention Lift Simulator -->
-        <div class="min-w-0 rounded-2xl border border-border bg-card p-6 shadow-xs sm:p-8">
+        <div class="min-w-0 rounded-2xl border border-border bg-card p-6 sm:p-8 lg:p-9 shadow-xs">
           <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
+            <div class="flex items-center gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-primary"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
               <h3 class="font-display text-xl font-bold text-navy sm:text-2xl tracking-tight">
                 Simulate Revenue Recovery (Reduce Churn)
               </h3>
             </div>
-            <span class="rounded-full bg-opportunity/15 px-3 py-1.5 text-xs sm:text-sm font-bold text-opportunity">
+            <span class="rounded-full bg-opportunity/15 px-3.5 py-1.5 text-xs sm:text-sm font-bold text-opportunity">
               Revenue Recovery
             </span>
           </div>
-          <p class="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+          <p class="mt-2.5 text-sm sm:text-base text-muted-foreground leading-relaxed">
             Slide to lower your monthly churn target and see how much extra revenue you protect.
           </p>
 
-          <div class="mt-6">
-            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1.5">
+          <div class="mt-7">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
               <label id="lbl-target-reduction" for="target-reduction" class="text-base font-bold text-navy">
                 Lower churn by: <span class="font-extrabold text-primary">-1.5%</span> (New Target: 3.0%)
               </label>
@@ -430,34 +431,34 @@
             />
           </div>
 
-          <div class="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-3">
-            <div class="rounded-xl bg-panel/70 border border-border/50 p-4 flex flex-col justify-between">
+          <div class="mt-7 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-3">
+            <div class="rounded-xl bg-panel/70 border border-border/50 p-5 sm:p-6 flex flex-col justify-between">
               <p class="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                 Target Churn Rate
               </p>
-              <p id="sim-target-churn" class="mt-1 font-display text-2xl sm:text-3xl font-extrabold text-navy tracking-tight">
+              <p id="sim-target-churn" class="mt-1.5 font-display text-2xl sm:text-3xl font-extrabold text-navy tracking-tight">
                 3.0%
               </p>
             </div>
-            <div class="rounded-xl bg-panel/70 border border-border/50 p-4 flex flex-col justify-between">
+            <div class="rounded-xl bg-panel/70 border border-border/50 p-5 sm:p-6 flex flex-col justify-between">
               <p class="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                 Extra Buyers Kept / Mo
               </p>
-              <p id="sim-saved-mo" class="mt-1 font-display text-2xl sm:text-3xl font-extrabold text-opportunity tracking-tight">
+              <p id="sim-saved-mo" class="mt-1.5 font-display text-2xl sm:text-3xl font-extrabold text-opportunity tracking-tight">
                 +15
               </p>
             </div>
-            <div class="rounded-xl bg-panel/70 border border-border/50 p-4 flex flex-col justify-between">
+            <div class="rounded-xl bg-panel/70 border border-border/50 p-5 sm:p-6 flex flex-col justify-between">
               <p class="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                 Annual Revenue Protected
               </p>
-              <p id="sim-annual-saved" class="mt-1 font-display text-2xl sm:text-3xl font-extrabold text-opportunity tracking-tight">
+              <p id="sim-annual-saved" class="mt-1.5 font-display text-2xl sm:text-3xl font-extrabold text-opportunity tracking-tight">
                 $21,600
               </p>
             </div>
           </div>
 
-          <div class="mt-5 flex items-start gap-3.5 rounded-xl border border-opportunity/30 bg-opportunity/10 p-4">
+          <div class="mt-6 flex items-start gap-4 rounded-xl border border-opportunity/30 bg-opportunity/10 p-5">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 text-opportunity" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
             <p id="sim-callout-text" class="text-sm sm:text-base text-foreground leading-relaxed">
               Lowering churn from <strong>4.5%</strong> to <strong>3.0%</strong> saves <strong>+15 buyers/month</strong> and protects <strong class="text-opportunity font-bold">$21,600/year</strong> in revenue with zero extra ad spend.
@@ -466,8 +467,8 @@
         </div>
 
         <!-- Health Score & Matrix -->
-        <div class="grid gap-5 sm:grid-cols-2">
-          <div class="min-w-0 rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs flex flex-col justify-between h-full">
+        <div class="grid gap-5 sm:gap-6 sm:grid-cols-2">
+          <div class="min-w-0 rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-xs flex flex-col justify-between h-full">
             <div>
               <div class="flex items-center justify-between">
                 <h3 class="font-display text-lg font-bold text-navy tracking-tight">
@@ -477,7 +478,7 @@
                   Benchmark Standard
                 </span>
               </div>
-              <div class="mt-5">
+              <div class="mt-6">
                 <div class="flex flex-col items-center">
                   <svg viewBox="0 0 200 118" class="w-full max-w-[260px]" role="img">
                     <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="var(--color-muted)" stroke-width="16" stroke-linecap="round" />
@@ -488,33 +489,33 @@
                   <p id="gauge-val-text" class="-mt-3 text-4xl font-extrabold text-navy font-display tracking-tight">
                     4.5%
                   </p>
-                  <p id="gauge-status-badge" class="mt-2 inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-semibold">
+                  <p id="gauge-status-badge" class="mt-2.5 inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-semibold">
                     Needs Attention
                   </p>
-                  <p id="gauge-desc-text" class="mt-3 max-w-xs px-2 text-center text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  <p id="gauge-desc-text" class="mt-3.5 max-w-xs px-2 text-center text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     Churn is creeping above optimal thresholds.
                   </p>
                 </div>
               </div>
             </div>
-            <dl id="gauge-ranges" class="mt-5 pt-3.5 border-t border-border/60 space-y-2 text-xs sm:text-sm"></dl>
+            <dl id="gauge-ranges" class="mt-6 pt-4 border-t border-border/60 space-y-2.5 text-xs sm:text-sm"></dl>
           </div>
 
-          <div class="min-w-0 rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs flex flex-col justify-between h-full">
+          <div class="min-w-0 rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-xs flex flex-col justify-between h-full">
             <div>
               <h3 class="font-display text-lg font-bold text-navy tracking-tight">
                 Revenue Recovery Benchmark Matrix
               </h3>
-              <p class="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p class="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Extra revenue you keep each year by improving retention:
               </p>
-              <div class="mt-4 overflow-x-auto">
+              <div class="mt-5 overflow-x-auto">
                 <table class="w-full text-left text-xs sm:text-sm">
                   <thead>
                     <tr class="border-b border-border/70 text-xs uppercase tracking-wider text-muted-foreground font-bold">
-                      <th class="pb-2.5 px-3">Retention Goal</th>
-                      <th class="pb-2.5 px-3">Extra Buyers Kept</th>
-                      <th class="pb-2.5 px-3">Annual Revenue Added</th>
+                      <th class="pb-3 px-3.5">Retention Goal</th>
+                      <th class="pb-3 px-3.5">Extra Buyers Kept</th>
+                      <th class="pb-3 px-3.5">Annual Revenue Added</th>
                     </tr>
                   </thead>
                   <tbody id="matrix-tbody" class="divide-y divide-border/60"></tbody>
@@ -522,7 +523,7 @@
               </div>
             </div>
 
-            <div id="ltv-risk-box" class="mt-4 rounded-xl bg-panel/70 border border-border/60 p-3.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <div id="ltv-risk-box" class="mt-5 rounded-xl bg-panel/70 border border-border/60 p-4 text-xs sm:text-sm text-muted-foreground leading-relaxed">
               <span class="font-bold text-navy">Total Customer Lifetime Value at Risk:</span> $1,296,000 across customer lifespans.
             </div>
           </div>
@@ -532,9 +533,9 @@
   </main>
 
   <!-- Executive Growth Insights Section -->
-  <section class="bg-panel border-y border-border py-12 sm:py-16 px-4 sm:px-6">
+  <section class="bg-panel border-y border-border py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
     <div class="mx-auto max-w-6xl">
-      <div class="text-center max-w-3xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
         <p class="text-xs sm:text-sm font-bold uppercase tracking-widest text-primary">Executive Growth Insights</p>
         <h2 class="mt-2.5 font-display text-2xl font-bold text-navy sm:text-4xl">
           Why Fixing Customer Churn Supercharges Your Paid Ads
@@ -544,44 +545,44 @@
         </p>
       </div>
 
-      <div class="mt-10 grid gap-6 sm:grid-cols-3">
-        <div class="rounded-2xl bg-card p-6 sm:p-7 border border-border shadow-xs flex flex-col justify-between h-full">
+      <div class="grid gap-6 sm:gap-8 sm:grid-cols-3">
+        <div class="rounded-2xl bg-card p-7 sm:p-8 lg:p-9 border border-border shadow-xs flex flex-col justify-between h-full">
           <div>
             <div class="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M13.744 17.736a6 6 0 1 1-7.48-7.48"></path><path d="M15 6h1v4"></path><path d="m6.134 14.768.866-.5 2 3.464"></path><circle cx="16" cy="8" r="6"></circle></svg>
             </div>
-            <h3 class="mt-4 font-display text-lg sm:text-xl font-bold text-navy tracking-tight">
+            <h3 class="mt-5 font-display text-lg sm:text-xl font-bold text-navy tracking-tight">
               Lowers Your Required Ad ROAS
             </h3>
-            <p class="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p class="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
               When buyers purchase 2 or 3 times instead of just once, you can afford higher ad bids to outcompete rivals on Google &amp; Meta while remaining highly profitable.
             </p>
           </div>
         </div>
 
-        <div class="rounded-2xl bg-card p-6 sm:p-7 border border-border shadow-xs flex flex-col justify-between h-full">
+        <div class="rounded-2xl bg-card p-7 sm:p-8 lg:p-9 border border-border shadow-xs flex flex-col justify-between h-full">
           <div>
             <div class="grid h-12 w-12 place-items-center rounded-xl bg-opportunity/10 text-opportunity">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></svg>
             </div>
-            <h3 class="mt-4 font-display text-lg sm:text-xl font-bold text-navy tracking-tight">
+            <h3 class="mt-5 font-display text-lg sm:text-xl font-bold text-navy tracking-tight">
               The 5% Repeat Buyer Multiplier
             </h3>
-            <p class="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p class="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
               Research by Bain &amp; Company proves that keeping just 5% more repeat customers increases bottom-line business profits by <strong>25% to 95%</strong> with zero extra ad spend.
             </p>
           </div>
         </div>
 
-        <div class="rounded-2xl bg-card p-6 sm:p-7 border border-border shadow-xs flex flex-col justify-between h-full">
+        <div class="rounded-2xl bg-card p-7 sm:p-8 lg:p-9 border border-border shadow-xs flex flex-col justify-between h-full">
           <div>
             <div class="grid h-12 w-12 place-items-center rounded-xl bg-accent text-accent-foreground">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M12 3v18"></path><path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path><path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M7 21h10"></path></svg>
             </div>
-            <h3 class="mt-4 font-display text-lg sm:text-xl font-bold text-navy tracking-tight">
+            <h3 class="mt-5 font-display text-lg sm:text-xl font-bold text-navy tracking-tight">
               Builds a Higher-Value Brand
             </h3>
-            <p class="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p class="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
               Investors and buyers value brands with high repeat customer rates 2x to 4x higher than businesses that rely solely on costly first-time ad clicks.
             </p>
           </div>
@@ -589,8 +590,8 @@
       </div>
 
       <!-- Verified Research Citations Grid -->
-      <div class="mt-10 rounded-2xl bg-card p-6 sm:p-8 border border-border shadow-xs">
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border/70 pb-4 mb-6">
+      <div class="mt-12 sm:mt-16 rounded-2xl bg-card p-7 sm:p-9 lg:p-10 border border-border shadow-xs">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border/70 pb-5 mb-7">
           <div class="flex items-center gap-3">
             <div class="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path><path d="M6 6h10"></path><path d="M6 10h10"></path></svg>
@@ -604,22 +605,22 @@
               </p>
             </div>
           </div>
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-panel px-3.5 py-1 text-xs font-bold text-navy border border-border">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-panel px-3.5 py-1.5 text-xs font-bold text-navy border border-border">
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-opportunity"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             Peer-Reviewed Industry Data
           </span>
         </div>
 
-        <div class="grid gap-5 sm:grid-cols-2 items-stretch">
+        <div class="grid gap-6 sm:grid-cols-2 items-stretch">
           <!-- Citation 1 -->
           <a
             href="https://www.bain.com/insights/prescription-for-cutting-costs/"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col justify-between h-full rounded-2xl border border-border bg-panel/60 hover:bg-panel p-5 sm:p-6 transition-all hover:border-primary/50 hover:shadow-md"
+            class="group flex flex-col justify-between h-full rounded-2xl border border-border bg-panel/60 hover:bg-panel p-6 sm:p-7 lg:p-8 transition-all hover:border-primary/50 hover:shadow-sm"
           >
             <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center justify-between gap-2 mb-3.5">
                 <span class="rounded-lg bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
                   1. Bain &amp; Co. / Harvard Business School
                 </span>
@@ -628,11 +629,11 @@
               <h4 class="text-base font-bold text-navy group-hover:text-primary transition-colors">
                 Prescription for Cutting Costs (The 5% Retention Rule)
               </h4>
-              <p class="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p class="mt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Authored by Frederick Reichheld &amp; Earl Sasser. Proves that increasing customer retention by 5% increases bottom-line profits by 25% to 95%.
               </p>
             </div>
-            <div class="mt-5 pt-3.5 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary group-hover:underline">
+            <div class="mt-6 pt-4 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary group-hover:underline">
               <span>View Bain &amp; Company Research</span>
               <span class="text-sm">➔</span>
             </div>
@@ -643,10 +644,10 @@
             href="https://hbr.org/2014/10/the-value-of-keeping-the-right-customers"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col justify-between h-full rounded-2xl border border-border bg-panel/60 hover:bg-panel p-5 sm:p-6 transition-all hover:border-primary/50 hover:shadow-md"
+            class="group flex flex-col justify-between h-full rounded-2xl border border-border bg-panel/60 hover:bg-panel p-6 sm:p-7 lg:p-8 transition-all hover:border-primary/50 hover:shadow-sm"
           >
             <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center justify-between gap-2 mb-3.5">
                 <span class="rounded-lg bg-opportunity/15 px-3 py-1 text-xs font-bold text-opportunity">
                   2. Harvard Business Review
                 </span>
@@ -655,11 +656,11 @@
               <h4 class="text-base font-bold text-navy group-hover:text-primary transition-colors">
                 The Value of Keeping the Right Customers
               </h4>
-              <p class="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p class="mt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Analysis by Amy Gallo proving customer acquisition (CAC) is 5x to 7x more expensive than retaining and expanding existing accounts.
               </p>
             </div>
-            <div class="mt-5 pt-3.5 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary group-hover:underline">
+            <div class="mt-6 pt-4 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary group-hover:underline">
               <span>Read HBR Article</span>
               <span class="text-sm">➔</span>
             </div>
@@ -670,10 +671,10 @@
             href="https://www.key.com/businesses-institutions/industry-expertise/technology/saas-survey.html"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col justify-between h-full rounded-2xl border border-border bg-panel/60 hover:bg-panel p-5 sm:p-6 transition-all hover:border-primary/50 hover:shadow-md"
+            class="group flex flex-col justify-between h-full rounded-2xl border border-border bg-panel/60 hover:bg-panel p-6 sm:p-7 lg:p-8 transition-all hover:border-primary/50 hover:shadow-sm"
           >
             <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center justify-between gap-2 mb-3.5">
                 <span class="rounded-lg bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
                   3. KeyBanc Capital Markets
                 </span>
@@ -682,11 +683,11 @@
               <h4 class="text-base font-bold text-navy group-hover:text-primary transition-colors">
                 Annual SaaS Industry Growth &amp; Retention Survey
               </h4>
-              <p class="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p class="mt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 The definitive subscription software benchmark report establishing the 3.5%–5.0% monthly churn baseline and Net Revenue Retention metrics.
               </p>
             </div>
-            <div class="mt-5 pt-3.5 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary group-hover:underline">
+            <div class="mt-6 pt-4 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary group-hover:underline">
               <span>Explore KeyBanc Dataset</span>
               <span class="text-sm">➔</span>
             </div>
@@ -697,10 +698,10 @@
             href="https://recurly.com/research/state-of-subscriptions/"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col justify-between h-full rounded-2xl border border-border bg-panel/60 hover:bg-panel p-5 sm:p-6 transition-all hover:border-primary/50 hover:shadow-md"
+            class="group flex flex-col justify-between h-full rounded-2xl border border-border bg-panel/60 hover:bg-panel p-6 sm:p-7 lg:p-8 transition-all hover:border-primary/50 hover:shadow-sm"
           >
             <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center justify-between gap-2 mb-3.5">
                 <span class="rounded-lg bg-warning/15 px-3 py-1 text-xs font-bold text-warning">
                   4. Recurly &amp; Recharge Research
                 </span>
@@ -709,11 +710,11 @@
               <h4 class="text-base font-bold text-navy group-hover:text-primary transition-colors">
                 State of Subscription Commerce Benchmark
               </h4>
-              <p class="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p class="mt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Aggregated retention benchmarks tracking millions of D2C e-commerce subscribers, boxed memberships, and repeat reorder behaviors.
               </p>
             </div>
-            <div class="mt-5 pt-3.5 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary group-hover:underline">
+            <div class="mt-6 pt-4 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary group-hover:underline">
               <span>View Recurly Commerce Index</span>
               <span class="text-sm">➔</span>
             </div>
@@ -724,33 +725,33 @@
   </section>
 
   <!-- WPForms Lead Capture Section -->
-  <section class="bg-navy text-navy-foreground border-t border-navy-foreground/10">
-    <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:items-center">
+  <section class="bg-navy text-navy-foreground border-t border-navy-foreground/10 py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
+    <div class="mx-auto grid max-w-6xl gap-10 lg:gap-14 lg:grid-cols-2 lg:items-center">
       <div>
         <p class="text-xs sm:text-sm font-bold uppercase tracking-widest text-opportunity">SEMTITANS Performance Marketing</p>
-        <h2 class="mt-2 font-display text-2xl font-bold leading-tight tracking-tight sm:text-4xl text-white">
+        <h2 class="mt-2.5 font-display text-2xl font-bold leading-tight tracking-tight sm:text-4xl text-white">
           Stop pouring ad budget into a leaky bucket.
         </h2>
-        <p class="mt-3.5 text-base sm:text-lg text-navy-muted leading-relaxed">
+        <p class="mt-4 text-base sm:text-lg text-navy-muted leading-relaxed">
           Scaling Google &amp; Meta Ads when customer churn is high ruins your ROAS. We help you target high-intent buyers, re-engage at-risk customers with precision remarketing, and build high-converting funnels that make every ad dollar compound.
         </p>
-        <ul class="mt-6 space-y-4 text-sm sm:text-base">
-          <li class="flex items-start gap-3">
+        <ul class="mt-8 space-y-5 text-sm sm:text-base">
+          <li class="flex items-start gap-3.5">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-5 w-5 shrink-0 text-opportunity" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
             <span class="text-navy-foreground/90 font-medium">High-Intent Google Ads &amp; SEO: Capture buyers who stay longer and deliver 2x–3x higher lifetime value</span>
           </li>
-          <li class="flex items-start gap-3">
+          <li class="flex items-start gap-3.5">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-5 w-5 shrink-0 text-opportunity" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
             <span class="text-navy-foreground/90 font-medium">Meta Remarketing &amp; Re-engagement: Win back churned customers and drive repeat orders</span>
           </li>
-          <li class="flex items-start gap-3">
+          <li class="flex items-start gap-3.5">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-5 w-5 shrink-0 text-opportunity" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
             <span class="text-navy-foreground/90 font-medium">Conversion-Driven Landing Pages &amp; Funnels: Clarify value from Day 1 to prevent early cancellations</span>
           </li>
         </ul>
       </div>
 
-      <div id="lead-form-wrapper" class="rounded-2xl bg-card p-6 text-foreground shadow-xl sm:p-8">
+      <div id="lead-form-wrapper" class="rounded-2xl bg-card p-7 sm:p-9 lg:p-10 text-foreground shadow-2xl border border-border/80">
         <form
           id="lead-form"
           aria-labelledby="lead-heading"
@@ -758,43 +759,43 @@
           <h3 id="lead-heading" class="font-display text-xl font-bold text-navy sm:text-2xl">
             Get Your Free Paid Ads &amp; Retention Growth Audit
           </h3>
-          <p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">
+          <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
             Our senior media buyers will audit your Google &amp; Meta ad funnels to help you lower acquisition costs, stop customer drop-offs, and scale profitably.
           </p>
-          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+          <div class="mt-6 grid gap-5 sm:grid-cols-2">
             <div>
-              <label for="lead-name" class="mb-2 block text-base font-bold text-navy">Full Name</label>
+              <label for="lead-name" class="mb-2 block text-sm sm:text-base font-bold text-navy">Full Name</label>
               <input
                 id="lead-name"
                 required
                 placeholder="e.g. Sarah Jenkins"
-                class="w-full rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+                class="w-full rounded-xl border border-input bg-card px-4.5 py-3.5 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
               />
             </div>
             <div>
-              <label for="lead-email" class="mb-2 block text-base font-bold text-navy">Work Email</label>
+              <label for="lead-email" class="mb-2 block text-sm sm:text-base font-bold text-navy">Work Email</label>
               <input
                 id="lead-email"
                 type="email"
                 required
                 placeholder="sarah@company.com"
-                class="w-full rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+                class="w-full rounded-xl border border-input bg-card px-4.5 py-3.5 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
               />
             </div>
             <div>
-              <label for="lead-company" class="mb-2 block text-base font-bold text-navy">Company / Website</label>
+              <label for="lead-company" class="mb-2 block text-sm sm:text-base font-bold text-navy">Company / Website</label>
               <input
                 id="lead-company"
                 required
                 placeholder="company.com"
-                class="w-full rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+                class="w-full rounded-xl border border-input bg-card px-4.5 py-3.5 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
               />
             </div>
             <div>
-              <label for="lead-spend" class="mb-2 block text-base font-bold text-navy">Monthly Ad Spend</label>
+              <label for="lead-spend" class="mb-2 block text-sm sm:text-base font-bold text-navy">Monthly Ad Spend</label>
               <select
                 id="lead-spend"
-                class="w-full rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25 font-semibold"
+                class="w-full rounded-xl border border-input bg-card px-4.5 py-3.5 text-base text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25 font-semibold"
               >
                 <option value="Under $5,000 / month">Under $5,000 / month</option>
                 <option value="$5,000 – $10,000 / month">$5,000 – $10,000 / month</option>
@@ -806,12 +807,12 @@
           </div>
 
           <!-- Newsletter Subscriber Checkbox -->
-          <div class="mt-4 flex items-center gap-3 rounded-xl border border-border/80 bg-panel/60 p-3.5">
+          <div class="mt-5 flex items-center gap-3.5 rounded-xl border border-border/80 bg-panel/60 p-4">
             <input
               id="lead-newsletter"
               type="checkbox"
               checked
-              class="h-4 w-4 rounded border-input text-primary focus:ring-primary/25 cursor-pointer accent-primary"
+              class="h-4.5 w-4.5 rounded border-input text-primary focus:ring-primary/25 cursor-pointer accent-primary"
             />
             <label for="lead-newsletter" class="text-xs sm:text-sm text-foreground font-semibold cursor-pointer select-none">
               Newsletter Subscriber: <span class="text-primary font-bold">Yes</span> <span class="text-muted-foreground font-normal">(Weekly Paid Media &amp; Retention Playbooks)</span>
@@ -821,12 +822,12 @@
           <button
             id="lead-submit-btn"
             type="submit"
-            class="mt-5 inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-primary px-6 py-4 font-display text-base font-bold text-primary-foreground shadow-lg shadow-primary/30 transition hover:brightness-110 cursor-pointer"
+            class="mt-6 inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-primary px-6 py-4.5 font-display text-base font-bold text-primary-foreground shadow-lg shadow-primary/30 transition hover:brightness-110 cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
             Get My Free Ad &amp; Retention Audit ➔
           </button>
-          <div class="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted-foreground font-medium pt-3 border-t border-border/60">
+          <div class="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2.5 text-xs text-muted-foreground font-medium pt-4 border-t border-border/60">
             <span class="inline-flex items-center gap-1.5">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-opportunity"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
               100% Confidential Ad Audit
@@ -843,7 +844,7 @@
         </form>
 
         <!-- Inline Success Feedback Card -->
-        <div id="lead-success-card" class="hidden text-center py-2 sm:py-4">
+        <div id="lead-success-card" class="hidden text-center py-4 sm:py-6">
           <!-- Circular Emerald Icon -->
           <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-4 shadow-2xs">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7 text-emerald-600"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>
@@ -857,12 +858,12 @@
             Your Free Audit Request is Received!
           </h3>
           
-          <p class="mt-3 text-sm sm:text-base text-slate-600 max-w-md mx-auto leading-relaxed">
+          <p class="mt-3.5 text-sm sm:text-base text-slate-600 max-w-md mx-auto leading-relaxed">
             Thank you, <strong id="lead-success-name" class="text-navy font-bold"></strong>! A senior growth strategist at SEMTITANS is analyzing your churn economics and will reach out to <strong id="lead-success-email" class="text-navy font-bold"></strong> within 24 business hours.
           </p>
 
           <!-- What Happens Next Box -->
-          <div class="mt-6 rounded-2xl bg-slate-50 border border-slate-200/80 p-5 text-left text-xs sm:text-sm text-slate-600 space-y-2 shadow-2xs">
+          <div class="mt-6 rounded-2xl bg-slate-50 border border-slate-200/80 p-5 sm:p-6 text-left text-xs sm:text-sm text-slate-600 space-y-2.5 shadow-2xs">
             <div class="flex items-center gap-2 font-bold text-navy text-sm">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span>What happens next?</span>
@@ -876,7 +877,7 @@
           <button
             id="lead-reset-btn"
             type="button"
-            class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 px-6 py-3.5 text-sm font-bold text-slate-800 shadow-xs transition-all hover:shadow cursor-pointer"
+            class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 px-6 py-4 text-sm font-bold text-slate-800 shadow-xs transition-all hover:shadow cursor-pointer"
           >
             <span>Submit Another Store or Model</span>
             <span class="text-sm">➔</span>
@@ -887,63 +888,63 @@
   </section>
 
   <!-- SEO FAQ Section -->
-  <section class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
-    <div class="text-center">
+  <section class="mx-auto max-w-4xl px-4 py-16 sm:py-20 lg:py-24 sm:px-6">
+    <div class="text-center mb-10">
       <h2 class="font-display text-2xl font-bold text-navy sm:text-4xl">
         Frequently Asked Questions About Customer Churn
       </h2>
-      <p class="mt-2.5 text-sm sm:text-base text-muted-foreground">
+      <p class="mt-3 text-sm sm:text-base text-muted-foreground">
         Everything you need to know about calculating churn rate and client churn analysis.
       </p>
     </div>
 
-    <div class="mt-8 space-y-3.5">
+    <div class="space-y-4">
       <div class="rounded-xl border border-border bg-card overflow-hidden shadow-xs transition">
-        <button type="button" class="faq-btn flex w-full items-center justify-between px-6 py-4.5 text-left font-semibold text-navy hover:text-primary transition text-base sm:text-lg cursor-pointer">
+        <button type="button" class="faq-btn flex w-full items-center justify-between px-6 py-5 sm:px-7 sm:py-5.5 text-left font-semibold text-navy hover:text-primary transition text-base sm:text-lg cursor-pointer">
           <span>How do you calculate customer churn rate?</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
         </button>
-        <div class="faq-content hidden px-6 pb-5 pt-1 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/50">
+        <div class="faq-content hidden px-6 pb-6 pt-2 sm:px-7 sm:pb-7 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/50">
           Calculating churn rate is straightforward: divide the number of customers lost during a specific time period (usually a month) by the number of total customers at the start of that period, then multiply by 100. Formula: (Customers Lost ÷ Starting Customers) × 100.
         </div>
       </div>
 
       <div class="rounded-xl border border-border bg-card overflow-hidden shadow-xs transition">
-        <button type="button" class="faq-btn flex w-full items-center justify-between px-6 py-4.5 text-left font-semibold text-navy hover:text-primary transition text-base sm:text-lg cursor-pointer">
+        <button type="button" class="faq-btn flex w-full items-center justify-between px-6 py-5 sm:px-7 sm:py-5.5 text-left font-semibold text-navy hover:text-primary transition text-base sm:text-lg cursor-pointer">
           <span>What is the difference between customer churn analysis and client churn analysis?</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
         </button>
-        <div class="faq-content hidden px-6 pb-5 pt-1 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/50">
+        <div class="faq-content hidden px-6 pb-6 pt-2 sm:px-7 sm:pb-7 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/50">
           Customer churn analysis generally applies to high-volume B2C or SaaS subscription businesses where individual ARPU is lower and volume is higher. Client churn analysis is typical for B2B agencies and high-ticket service companies where losing even 1 or 2 clients creates a significant financial impact.
         </div>
       </div>
 
       <div class="rounded-xl border border-border bg-card overflow-hidden shadow-xs transition">
-        <button type="button" class="faq-btn flex w-full items-center justify-between px-6 py-4.5 text-left font-semibold text-navy hover:text-primary transition text-base sm:text-lg cursor-pointer">
+        <button type="button" class="faq-btn flex w-full items-center justify-between px-6 py-5 sm:px-7 sm:py-5.5 text-left font-semibold text-navy hover:text-primary transition text-base sm:text-lg cursor-pointer">
           <span>What is considered a healthy customer churn rate?</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
         </button>
-        <div class="faq-content hidden px-6 pb-5 pt-1 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/50">
+        <div class="faq-content hidden px-6 pb-6 pt-2 sm:px-7 sm:pb-7 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/50">
           For B2B SaaS and agency retainers, a monthly churn rate below 2%–3.5% is considered healthy. For high-velocity B2C subscriptions and e-commerce memberships, monthly churn typically sits between 5.5% and 8%. Anything above these thresholds indicates onboarding friction or lifecycle drop-offs.
         </div>
       </div>
 
       <div class="rounded-xl border border-border bg-card overflow-hidden shadow-xs transition">
-        <button type="button" class="faq-btn flex w-full items-center justify-between px-6 py-4.5 text-left font-semibold text-navy hover:text-primary transition text-base sm:text-lg cursor-pointer">
+        <button type="button" class="faq-btn flex w-full items-center justify-between px-6 py-5 sm:px-7 sm:py-5.5 text-left font-semibold text-navy hover:text-primary transition text-base sm:text-lg cursor-pointer">
           <span>What are the most effective ways to reduce churn rate?</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
         </button>
-        <div class="faq-content hidden px-6 pb-5 pt-1 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/50">
+        <div class="faq-content hidden px-6 pb-6 pt-2 sm:px-7 sm:pb-7 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/50">
           The fastest ways to reduce churn rate include: 1) Targeting higher-intent search traffic on Google/SEO rather than low-intent clicks, 2) Precision Meta Ads remarketing to re-engage inactive accounts, 3) Improving customer onboarding, and 4) Fixing billing friction with automated credit card dunning sequences.
         </div>
       </div>
 
       <div class="rounded-xl border border-border bg-card overflow-hidden shadow-xs transition">
-        <button type="button" class="faq-btn flex w-full items-center justify-between px-6 py-4.5 text-left font-semibold text-navy hover:text-primary transition text-base sm:text-lg cursor-pointer">
+        <button type="button" class="faq-btn flex w-full items-center justify-between px-6 py-5 sm:px-7 sm:py-5.5 text-left font-semibold text-navy hover:text-primary transition text-base sm:text-lg cursor-pointer">
           <span>Where do these churn benchmarks and retention data points come from?</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
         </button>
-        <div class="faq-content hidden px-6 pb-5 pt-1 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/50">
+        <div class="faq-content hidden px-6 pb-6 pt-2 sm:px-7 sm:pb-7 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/50">
           All benchmarks and formulas in this calculator are sourced directly from peer-reviewed business research and major subscription indices: <strong>Bain &amp; Company / Harvard Business School</strong> (retention ROI research), <strong>KeyBanc Capital Markets</strong> (SaaS cohort benchmarks), <strong>Harvard Business Review</strong> (acquisition cost economics), and <strong>Recurly / Recharge</strong> (subscription commerce indices).
         </div>
       </div>
@@ -951,8 +952,8 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-navy-foreground/10 bg-navy py-8 text-center text-sm text-navy-muted">
-    <div class="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+  <footer class="border-t border-navy-foreground/10 bg-navy py-10 px-4 sm:px-6 text-center text-sm text-navy-muted">
+    <div class="mx-auto max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2.5">
         <img src="./logo-favicon.png" alt="SEMTITANS" class="h-6 w-6 rounded-md object-contain opacity-90" />
         <span class="font-semibold text-white">SEMTITANS</span>
