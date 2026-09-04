@@ -188,8 +188,12 @@
     }
 
     const currentTargetChurn = Math.max(0, churn - targetReduction);
-    const savedPerMonth = Math.max(0, starting * (targetReduction / 100));
-    const annualProtected = savedPerMonth * arpu * 12;
+    const savedPerMonth =
+      currentTargetChurn === 0
+        ? lost
+        : Math.min(lost, Math.max(0, starting * (targetReduction / 100)));
+    const annualProtected =
+      currentTargetChurn === 0 ? annualRisk : savedPerMonth * arpu * 12;
     const adSpendSaved = savedPerMonth * 12 * estCac;
 
     // Status and Gauge
