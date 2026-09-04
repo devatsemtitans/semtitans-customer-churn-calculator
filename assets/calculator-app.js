@@ -838,6 +838,17 @@ Model URL: ${window.location.href}`;
       });
     }
 
+    // Reset Form Handler (Submit Another Inquiry)
+    const resetFormBtn = document.getElementById("lead-reset-btn");
+    if (resetFormBtn && successCard && leadForm) {
+      resetFormBtn.addEventListener("click", () => {
+        leadForm.reset();
+        successCard.classList.add("hidden");
+        leadForm.classList.remove("hidden");
+        document.getElementById("lead-form-wrapper")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    }
+
     // URL Query Parameter Initializer
     try {
       const urlParams = new URLSearchParams(window.location.search);
